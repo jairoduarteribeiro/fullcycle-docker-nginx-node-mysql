@@ -1,0 +1,14 @@
+name: fullcycle
+
+services:
+  db:
+    image: mysql:9.1.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
