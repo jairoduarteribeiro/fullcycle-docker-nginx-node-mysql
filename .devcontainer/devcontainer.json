@@ -1,0 +1,29 @@
+{
+  "name": "C++",
+  "image": "node:20.18.0",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
+      "packages": [
+        "vim"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "editor.tabSize": 2
+        }
+      }
+    }
+  }
+}
