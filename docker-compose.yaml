@@ -1,6 +1,16 @@
 name: fullcycle
 
 services:
+  app:
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./node:/app
+      - /app/node_modules
+
   db:
     image: mysql:9.1.0
     restart: always
