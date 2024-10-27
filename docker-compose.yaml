@@ -10,6 +10,10 @@ services:
     volumes:
       - ./node:/app
       - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
 
   db:
     image: mysql:9.1.0
@@ -19,6 +23,11 @@ services:
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d
       - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   mysql-data:
